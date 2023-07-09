@@ -221,20 +221,20 @@
 		                <!-- /head -->
 		                <div class="main">
 		                	<ul>
-		                		<li>Date<span>Today 2/4/2023</span></li>
-		                		<li>Hour<span>08.30pm</span></li>
+		                		<li>Date<span>Today 9/7/2023</span></li>
+		                		<li>Hour<span>02.55pm</span></li>
 		                		<li>Type<span>Delivery</span></li>
 		                	</ul>
 		                	<hr>
 		                	<ul class="clearfix">
-		                		<li><a href="#0">Basmati Kacchi</a><span>290 ৳</span></li>
+		                		<li><a href="#0">Basmati Kacchi</a><span>1430 ৳</span></li>
 		                		>
 		                	</ul>
 		                	
 		                	<ul class="clearfix">
-		                		<li>Subtotal<span>290 ৳</span></li>
+		                		<li>Subtotal<span>1430 ৳</span></li>
 		                		<li>Delivery fee<span>0 ৳</span></li>
-		                		<li class="total">Total<span>290 ৳</span></li>
+		                		<li class="total">Total<span>1430 ৳</span></li>
 		                	</ul>
 		                    <a href="confirm.php?nid=<?php echo $pid ?>" class="btn_1 gradient full-width mb_5">Order Now</a>
 		                    <div class="text-center"><small>Or Call Us at <strong>01628245488</strong></small></div>
