@@ -70,7 +70,7 @@
 	                <img src="img/logo.png" width="140" height="35" alt="">
 	            </a>
 	        </div>
-	        <div class="layer"></div><!-- Opacity Mask Menu Mobile -->
+	        <div class="layer"></div>
 	        <ul id="top_menu">
                 <?php
                     if (!empty($_SESSION['us_id'])) {
