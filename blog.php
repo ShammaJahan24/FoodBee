@@ -50,7 +50,99 @@
                 <li><a href="#sign-in-dialog" id="sign-in" class="login">Sign In</a></li> <?php }?>
                 <li><a href="#" class="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
             </ul>
-
-
             
+            <!-- /top_menu -->
+            <a href="#0" class="open_close">
+                <i class="icon_menu"></i><span>Menu</span>
+            </a>
+            <nav class="main-menu">
+                <div id="header_menu">
+                    <a href="#0" class="open_close">
+                        <i class="icon_close"></i><span>Menu</span>
+                    </a>
+                    <a href="index.php"><img src="img/logo.png" width="162" height="35" alt=""></a>
+                </div>
+                <ul>
+                    <li >
+                        <a href="index.php">Home</a>
+                    </li>
+                    <li >
+                        <a href="restaurant.php">Restaurant</a>
+                    </li>
+                    <li >
+                        <a >Meal Planning</a>
+                    </li>
+                    <li >
+                        <a href="blog.php">Blog</a>
+                    </li>
+                    <li >
+                        <a href="recipes.php">Recipes</a>
+                    </li>
+                    
+                    <?php
+                    if (!empty($_SESSION['us_id'])) {
+                        $cid = $_SESSION['us_id'];
+                        
+                    
+                    $query=mysqli_query($connect, "SELECT * from user where us_id = $cid");
+                    $row=mysqli_fetch_assoc($query); 
+                    
+                    ?>
+                    <li class="submenu">
+                        &nbsp;&nbsp;<img src="img2/<?php echo htmlentities($row['us_pic']); ?>" style="display: inline-block; border-radius: 50%; width: 30px; height: 30px;" alt="Image"> 
+                        <a style="display: inline-block; margin-left: 10px;"><?php echo htmlentities($row['us_name']); ?></a> 
+                        <ul>
+                            <li><a href="#0">Add Restaurant</a></li>
+                            <li><a href="?logout=1" style="color: red;">Log Out</a></li>
+                                                         
+                        </ul>
+                    </li>
+                    <?php 
+                        }
+                    else{}?>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- /header -->
+	
+	<main>
+		<div class="page_header blog element_to_stick">
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-xl-8 col-lg-7 col-md-7 d-none d-md-block">
+		    			<h1>Blog and Articles</h1>
+		    		</div>
+					
+		    		<div class="col-xl-4 col-lg-5 col-md-5">
+		    			<div class="search_bar_list">
+						    <input type="text" class="form-control" placeholder="Dishes, restaurants, cuisines, blog or recipes">
+						    <button type="submit"><i class="icon_search"></i></button>
+						</div>
+		    		</div>
+					
+		    	</div>
+				<div class="row">
+					
+                    <?php
+                        if (!empty($_SESSION['us_id'])) {
+                        
+                        
+                        ?>
+                        <div class="mt-2 col-sm-12 text-center">
+                            <a href="add_blog.php" class="btn_1 gradient" style="width: 1000px">Add Blog</a>
+                            <a href="my_blog.php" class="btn_1 gradient" style="width: 200px">My BlogS</a>
+                        </div>
+                        <?php }
+                                else{} ?>
+				</div>
+		    	<!-- /row -->		       
+		    </div>
+		</div>
+		<!-- /page_header -->
+
+
 </body>
