@@ -215,5 +215,28 @@
 				</div>
 				<!-- /col -->
 
+                <aside class="col-lg-3">
+					<div class="widget">
+						<div class="widget-title first">
+							<h4>Latest Post</h4>
+						</div>
+						<ul class="comments-list">
+							<?php
+
+							$query = mysqli_query($connect, "SELECT * FROM blog_post as b join user as u on b.bg_us_id=u.us_id order by bg_time DESC limit 3");
+							while ($row = mysqli_fetch_array($query)) {
+								?>
+							<li>
+								<div class="alignleft">
+									<a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><img src="img2/<?php echo htmlentities($row['bg_img']); ?>" alt=""></a>
+								</div>
+								<small><?php echo htmlentities($row['bg_time']); ?></small>
+								<h3><a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>" title=""><?php echo htmlentities($row['bg_title']); ?></a></h3>
+							</li>
+							<?php } ?>
+							
+						</ul>
+					</div>
+
 
 </body>
