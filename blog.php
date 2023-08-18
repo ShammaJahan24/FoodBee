@@ -237,6 +237,33 @@
 							
 						</ul>
 					</div>
-
+                    <!-- /widget -->
+					<div class="widget">
+						<div class="widget-title">
+							<h4>Categories</h4>
+						</div>
+						<ul class="cats">
+							<li><a href="#">Food <span>(12)</span></a></li>
+							<li><a href="#">Places to visit <span>(21)</span></a></li>
+							<li><a href="#">New Places <span>(44)</span></a></li>
+							<li><a href="#">Suggestions and guides <span>(31)</span></a></li>
+						</ul>
+					</div>
+					<!-- /widget -->
+					<div class="widget">
+						<div class="widget-title">
+							<h4>Popular Tags</h4>
+						</div>
+						<div class="tags">
+							<a href="#">Food</a>
+							<a href="#">Bars</a>
+							<a href="#">Cooktails</a>
+							<a href="#">Shops</a>
+							<a href="#">Best Offers</a>
+							<a href="#">Transports</a>
+							<a href="#">Restaurants</a>
+						</div>
+					</div>
+					<!-- /widget -->
 
 </body>
