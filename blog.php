@@ -1,3 +1,25 @@
+<?php
+  session_start();
+  if(isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+
+    // clear authentication cookies or tokens here
+    // ...
+
+    header("Location: blog.php");
+    exit;
+    } 
+  if (!empty($_SESSION['us_id'])) {
+    $cid = $_SESSION['us_id'];
+    
+  }
+  else{}
+  include 'db_connect.php';
+  $connect = mysqli_connect(HOST, USER, PASS, DB)
+    or die("Can not connect");
+
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,6 +165,55 @@
 		    </div>
 		</div>
 		<!-- /page_header -->
+
+        <div class="container margin_60_20">			
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="row">
+						<?php
+
+						$query = mysqli_query($connect, "SELECT * FROM blog_post as b join user as u on b.bg_us_id=u.us_id order by bg_time DESC ");
+						while ($row = mysqli_fetch_array($query)) {
+							?>
+						<div class="col-md-6">
+							<article class="blog">
+								<figure>
+									<a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><img src="img2/<?php echo htmlentities($row['bg_img']); ?>" alt="">
+										<div class="preview"><span>Read more</span></div>
+									</a>
+								</figure>
+								<div class="post_info">
+									<small><?php echo htmlentities($row['bg_time']); ?></small>
+									<h2><a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><?php echo htmlentities($row['bg_title']); ?></a></h2>
+									<p><?php echo htmlentities($row['bg_post']); ?></p>
+									<ul>
+										<li>
+											<div class="thumb"><img src="img2/<?php echo htmlentities($row['us_pic']); ?>" alt=""></div> <?php echo htmlentities($row['us_name']); ?>
+										</li>
+										<li><i class="icon_comment_alt"></i>20</li>
+									</ul>
+								</div>
+							</article>
+							<!-- /article -->
+						</div>
+						<?php } ?>
+						
+						<!-- /col -->
+					</div>
+					<!-- /row -->
+
+					<div class="pagination_fg">
+					  <a href="#">&laquo;</a>
+					  <a href="#" class="active">1</a>
+					  <a href="#">2</a>
+					  <a href="#">3</a>
+					  <a href="#">4</a>
+					  <a href="#">5</a>
+					  <a href="#">&raquo;</a>
+					</div>
+
+				</div>
+				<!-- /col -->
 
 
 </body>
