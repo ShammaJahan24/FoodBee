@@ -447,6 +447,82 @@
 </div>
 
 
+<!-- /Sign In Modal -->
+
+<!-- Modal item order -->
+<div id="modal-dialog" class="zoom-anim-dialog mfp-hide">
+    <div class="small-dialog-header">
+        <h3 id="modal-header"></h3>
+    </div>
+    <div class="content">
+        <h5>Quantity</h5>
+        <div class="numbers-row">
+            <input type="text" value="1" id="qty_1" class="qty2 form-control" name="quantity">
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="row small-gutters">
+            <div class="col-md-4">
+                <button type="reset" class="btn_1 outline full-width mb-mobile">Add to Cart</button>
+            </div>
+            <div class="col-md-8">
+                <button type="button" class="btn_1 full-width" id="addToCartButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- /Modal item order -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="js/common_scripts.min.js"></script>
+    <script src="js/common_func.js"></script>
+    <script src="assets/validate.js"></script>
+
+    <!-- SPECIFIC SCRIPTS -->
+    <script src="js/sticky_sidebar.min.js"></script>
+    <script src="js/sticky-kit.min.js"></script>
+    <script src="js/specific_detail.js"></script>
+	<script>
+		// Attach event listener to link
+		const menuItems = document.querySelectorAll('.menu_item');
+		menuItems.forEach(item => {
+			item.addEventListener('click', (event) => {
+				event.preventDefault();
+				const modal = document.querySelector(item.getAttribute('href'));
+				const name = item.getAttribute('data-name');
+				const price = item.getAttribute('data-price');
+				
+				// Set modal header and data
+				modal.querySelector('#modal-header').textContent = name;
+				modal.querySelector('#modal-price').textContent = price;
+				
+				// Show the modal
+				modal.classList.add('mfp-ready');
+				modal.classList.add('mfp-fadeIn');
+				modal.style.display = 'block';
+			});
+		});
+	</script>
+	<script>
+		var addToCartButton = document.querySelector('#modal-dialog .footer button');
+
+		// Add an event listener to the button
+		addToCartButton.addEventListener('click', function() {
+			// Get the quantity from the input field in the modal
+			var quantity = document.querySelector('#modal-dialog input[name="quantity"]').value;
+
+			// Get the data from the modal header
+			var data = document.querySelector('#modal-dialog #modal-header').textContent;
+
+			// Create a new list item with the data and quantity
+			var newItem = document.createElement('li');
+			newItem.innerHTML = '<a href="#0">' + data + '</a><span>$' + (11 * quantity) + '</span>';
+
+			// Add the new item to the data area
+			var dataArea = document.querySelector('#data-area');
+			dataArea.appendChild(newItem);
+		});
 	</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
