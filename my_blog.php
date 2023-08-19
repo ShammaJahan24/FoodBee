@@ -106,4 +106,103 @@
         </div>
     </header>
     <!-- /header -->
+    <main>
+		<div class="page_header blog element_to_stick">
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-xl-8 col-lg-7 col-md-7 d-none d-md-block">
+		    			<h1>Blog and Articles</h1>
+		    		</div>
+					
+		    		<div class="col-xl-4 col-lg-5 col-md-5">
+		    			<div class="search_bar_list">
+						    <input type="text" class="form-control" placeholder="Dishes, restaurants, cuisines, blog or recipes">
+						    <button type="submit"><i class="icon_search"></i></button>
+						</div>
+		    		</div>
+					
+		    	</div>
+				<div class="row">
+                    <?php
+                    if (!empty($_SESSION['us_id'])) {
+                    
+                    
+                    ?>
+					<div class="mt-2 col-sm-12 text-center">
+						<a href="add_blog.php" class="btn_1 gradient" style="width: 1000px">Add Blog</a>
+                        <a href="my_blog.php" class="btn_1 gradient" style="width: 200px">My BlogS</a>
+					</div>
+                    <?php }
+                            else{} ?>
+				</div>
+		    	<!-- /row -->		       
+		    </div>
+		</div>
+		<!-- /page_header -->
+
+		<div class="container margin_60_20">			
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="row">
+						<?php
+
+						$query = mysqli_query($connect, "SELECT * FROM blog_post as b join user as u on b.bg_us_id=u.us_id where u.us_id = $cid  order by bg_time DESC ");
+						while ($row = mysqli_fetch_array($query)) {
+							?>
+						<div class="col-md-6">
+							<article class="blog">
+								<figure>
+									<a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><img src="img2/<?php echo htmlentities($row['bg_img']); ?>" alt="">
+										<div class="preview"><span>Read more</span></div>
+									</a>
+								</figure>
+                               
+								<div class="post_info">
+									<small><?php echo htmlentities($row['bg_time']); ?></small>
+									<h2><a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><?php echo htmlentities($row['bg_title']); ?></a></h2>
+									<p><?php echo htmlentities($row['bg_post']); ?></p>
+									<ul>
+                                        <div>
+                                                <a href="delete_blog.php?fid=<?php echo htmlentities($row['bg_id']) ?>" class="btn_1 gradient" >Delete</a>
+                                                <a href="edit_blog.php?fid=<?php echo htmlentities($row['bg_id']) ?>" class="btn_1 gradient" >Edit</a>
+                                        </div>
+										<li>
+											<div class="thumb"><img src="img2/<?php echo htmlentities($row['us_pic']); ?>" alt=""></div> <?php echo htmlentities($row['us_name']); ?>
+										</li>
+										<li><i class="icon_comment_alt"></i>20</li>
+                                        
+									</ul>
+                                    
+								</div>
+							</article>
+							<!-- /article -->
+						</div>
+						<?php } ?>
+						
+						<!-- /col -->
+					</div>
+					<!-- /row -->
+
+					<div class="pagination_fg">
+					  <a href="#">&laquo;</a>
+					  <a href="#" class="active">1</a>
+					  <a href="#">2</a>
+					  <a href="#">3</a>
+					  <a href="#">4</a>
+					  <a href="#">5</a>
+					  <a href="#">&raquo;</a>
+					</div>
+
+				</div>
+				<!-- /col -->
+
+				
+				<!-- /aside -->
+			</div>
+			<!-- /row -->	
+		</div>
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
 </body>
