@@ -131,5 +131,40 @@
         </div>
     </header>
     <!-- /header -->
+    
+    <main class="bg_gray">
+		
+		<div class="container margin_60_20">
+		    <div class="row justify-content-center">
+		        <div class="col-lg-8">
+		            <div class="box_general write_review">
+					
+		                <h1 class="add_bottom_15">Add Blog </h1>
+						
+						<form class="ui form" method="post" enctype="multipart/form-data" action="blog_entry.php">
+                            <div class="form-group">
+                                <label>Title of your Blog</label>
+                                <input class="form-control" type="text" placeholder="Blog heading" name="bg_title">
+                            </div>
+                            <div class="form-group">
+                                <label>Post</label>
+                                <textarea class="form-control" style="height: 180px;" placeholder="Write your Blog details in here" name="bg_post"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Add your photo </label>
+                                <div class="fileupload"><input type="file" name="fileupload" accept="image/*"></div>
+                            </div>
+                            <input class="btn_1" type="submit" value="Submit">
+                        </form>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- /row -->
+		</div>
 
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
+    
 </body>
