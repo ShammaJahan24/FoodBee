@@ -20,7 +20,6 @@
     or die("Can not connect");
 
   ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,9 +52,8 @@
     <link href="css/custom.css" rel="stylesheet">
 
 </head>
-
 <body>
-				
+
 <header class="header_in clearfix">
 	    <div class="container">
 	        <div id="logo">
@@ -130,6 +128,7 @@
             </nav>
         </div>
     </header>
+
     <!-- /header -->
 	
 	<main>
@@ -167,7 +166,7 @@
 		</div>
 		<!-- /page_header -->
 
-		<div class="container margin_60_20">			
+        <div class="container margin_60_20">			
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="row">
@@ -216,7 +215,7 @@
 				</div>
 				<!-- /col -->
 
-				<aside class="col-lg-3">
+                <aside class="col-lg-3">
 					<div class="widget">
 						<div class="widget-title first">
 							<h4>Latest Post</h4>
@@ -238,7 +237,7 @@
 							
 						</ul>
 					</div>
-					<!-- /widget -->
+                    <!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
 							<h4>Categories</h4>
@@ -266,7 +265,7 @@
 						</div>
 					</div>
 					<!-- /widget -->
-				</aside>
+                    </aside>
 				<!-- /aside -->
 			</div>
 			<!-- /row -->	
@@ -276,7 +275,8 @@
 	</main>
 	<!-- /main -->
 
-	<footer>
+
+    <footer>
         <div class="wave footer"></div>
         <div class="container margin_60_40 fix_mobile">
 
@@ -377,8 +377,8 @@
     <!--/footer-->
 
 	<div id="toTop"></div><!-- Back to top button -->
-		
-	<!-- Sign In Modal -->
+
+    <!-- Sign In Modal -->
 <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
     <div class="modal_header">
         <h3>Sign In</h3>
@@ -432,6 +432,5 @@
     <script src="js/common_scripts.min.js"></script>
     <script src="js/common_func.js"></script>
     <script src="assets/validate.js"></script>
-
 </body>
 </html>

@@ -22,9 +22,6 @@
 
   ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +53,6 @@
 </head>
 
 <body>
-				
 <header class="header_in clearfix">
 	    <div class="container">
 	        <div id="logo">
@@ -132,8 +128,8 @@
         </div>
     </header>
     <!-- /header -->
-	
-	<main>
+
+    <main>
 		<div class="page_header blog element_to_stick">
 		    <div class="container">
 		    	<div class="row">
@@ -299,7 +295,7 @@
 	</main>
 	<!-- /main -->
 
-	<footer>
+    <footer>
         <div class="wave footer"></div>
         <div class="container margin_60_40 fix_mobile">
 

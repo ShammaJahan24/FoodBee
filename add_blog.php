@@ -55,7 +55,7 @@
 </head>
 
 <body>
-				
+    
 <header class="header_in clearfix">
 	    <div class="container">
 	        <div id="logo">
@@ -131,8 +131,8 @@
         </div>
     </header>
     <!-- /header -->
-	
-	<main class="bg_gray">
+    
+    <main class="bg_gray">
 		
 		<div class="container margin_60_20">
 		    <div class="row justify-content-center">
@@ -167,7 +167,7 @@
 	</main>
 	<!-- /main -->
 
-	<footer>
+    <footer>
         <div class="wave footer"></div>
         <div class="container margin_60_40 fix_mobile">
 
@@ -327,7 +327,6 @@
 
     <!-- SPECIFIC SCRIPTS -->
     <script src="js/specific_review.js"></script>
-	
 
 </body>
 </html>

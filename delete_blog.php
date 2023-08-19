@@ -19,8 +19,7 @@
   $connect = mysqli_connect(HOST, USER, PASS, DB)
     or die("Can not connect");
 
-  ?>
-
+?>
 
 <!DOCTYPE html>
 <html>
@@ -54,4 +53,3 @@
 	</div>
 </body>
 </html>
-

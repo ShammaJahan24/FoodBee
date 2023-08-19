@@ -12,7 +12,6 @@
 
 	if (!empty($_SESSION['us_id'])) {
         $cid = $_SESSION['us_id'];
-        
       }
       else{}
 ?>
@@ -35,17 +34,20 @@
 
 	<div class="ui padded text segment container" style="margin-top: 20vh;">
 		<?php
-            $bgc_time = (new \DateTime())->format('Y-m-d H:i:s');
-            $bgc_comment = $_GET["comments"];
-			$bgc_bg_id = $_GET["bgid"];
-			
+            $bg_title = $_POST['bg_title'];
+            $bg_post = $_POST['bg_post'];
+            $filename = $_FILES['fileupload']['name'];
+            $tempname = $_FILES['fileupload']['tmp_name'];
+            $bg_time = (new \DateTime())->format('Y-m-d H:i:s');
 
 
-			mysqli_query( $connect, "INSERT INTO blog_comment (bgc_comment,bgc_bg_id,bgc_us_id,bgc_time) VALUES ('$bgc_comment','$bgc_bg_id', '$cid' ,'$bgc_time')" )
+			mysqli_query( $connect, "INSERT INTO blog_post (bg_title,bg_post,bg_time,bg_us_id,bg_img) VALUES ('$bg_title','$bg_post', '$bg_time' ,'$cid','$filename')" )
 
 				or die("Can not execute query");
-
-            header("Location: blog-post.php?bgid=$bgc_bg_id");
+            $target_dir = "img2/";
+            $target_file = $target_dir . basename($filename);
+            move_uploaded_file($tempname, $target_file);
+            header("Location: blog.php");
 
 		?>
 		

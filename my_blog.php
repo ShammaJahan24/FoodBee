@@ -53,9 +53,7 @@
     <link href="css/custom.css" rel="stylesheet">
 
 </head>
-
 <body>
-				
 <header class="header_in clearfix">
 	    <div class="container">
 	        <div id="logo">
@@ -131,8 +129,7 @@
         </div>
     </header>
     <!-- /header -->
-	
-	<main>
+    <main>
 		<div class="page_header blog element_to_stick">
 		    <div class="container">
 		    	<div class="row">
@@ -232,7 +229,7 @@
 	</main>
 	<!-- /main -->
 
-	<footer>
+    <footer>
         <div class="wave footer"></div>
         <div class="container margin_60_40 fix_mobile">
 
@@ -388,6 +385,5 @@
     <script src="js/common_scripts.min.js"></script>
     <script src="js/common_func.js"></script>
     <script src="assets/validate.js"></script>
-
 </body>
 </html>
