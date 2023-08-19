@@ -128,4 +128,170 @@
         </div>
     </header>
     <!-- /header -->
+
+    <main>
+		<div class="page_header blog element_to_stick">
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-xl-8 col-lg-7 col-md-7 d-none d-md-block">
+		    			<h1>Blog and Articles</h1>
+		    		</div>
+		    		<div class="col-xl-4 col-lg-5 col-md-5">
+		    			<div class="search_bar_list">
+						    <input type="text" class="form-control" placeholder="Dishes, restaurants, cuisines, blog or recipes">
+						    <button type="submit"><i class="icon_search"></i></button>
+						</div>
+		    		</div>
+		    	</div>
+		    	<!-- /row -->		       
+		    </div>
+		</div>
+		<!-- /page_header -->
+
+		<div class="container margin_60_20">			
+			<div class="row">
+
+				<div class="col-lg-9">
+					<?php
+
+					$query = mysqli_query($connect, "SELECT * FROM blog_post  as b join user as u on b.bg_us_id=u.us_id where '$bgid'=b.bg_id ");
+					while ($row = mysqli_fetch_array($query)) {
+						?>
+					<div class="singlepost">
+						<figure><img alt="" class="img-fluid" src="img2/<?php echo htmlentities($row['bg_img']); ?>" style=" width: 950px; height: auto;"></figure>
+						<h1><?php echo htmlentities($row['bg_title']); ?></h1>
+						<div class="postmeta">
+							<ul>
+								
+								<li><i class="icon_calendar"></i> <?php echo htmlentities($row['bg_time']); ?></li>
+								<li>
+									<img src="img2/<?php echo htmlentities($row['us_pic']); ?>" alt="" style="border-radius: 50%; width: 30px; height: 30px;"><?php echo htmlentities($row['us_name']); ?>
+								</li>
+								
+							</ul>
+						</div>
+						<!-- /post meta -->
+						<div class="post-content">
+							<div class="dropcaps">
+								
+							</div>
+							<p><?php echo htmlentities($row['bg_post']); ?></p>
+
+						</div>
+						<!-- /post -->
+					</div>
+					<?php } ?>
+					<!-- /single-post -->
+					<?php 
+					$query=mysqli_query($connect, "SELECT COUNT(bgc_bg_id)as c FROM blog_comment  WHERE bgc_bg_id='$bgid' ");
+					$result = mysqli_fetch_assoc($query);
+					$comment_count = $result['c'];
+					
+					if ($comment_count != 0) {
+
+					?>
+
+					<div id="comments">
+						<h5>Comments</h5>
+						<ul>
+							<?php
+
+							$query = mysqli_query($connect, "SELECT * FROM blog_comment  as b join user as u on b.bgc_us_id=u.us_id where '$bgid'=b.bgc_bg_id ");
+							while ($row = mysqli_fetch_array($query)) {
+								?>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="img2/<?php echo htmlentities($row['us_pic']); ?>" alt="">
+									</a>
+								</div>
+								<div class="comment_right clearfix">
+									<div class="comment_info">
+										By <a href="#"><?php echo htmlentities($row['us_name']); ?></a><span>|</span><?php echo htmlentities($row['bgc_time']); ?><span>|</span><a href="#">Reply</a>
+									</div>
+									<p>
+									<?php echo htmlentities($row['bgc_comment']); ?>
+									</p>
+								</div>
+								
+							</li>
+							<?php } ?>
+						</ul>
+					</div>
+					<?php } else {} ?>
+
+					<hr>
+
+					<h5>Leave a comment</h5>
+					<form class="ui form" method=get action=blog_comment.php>
+					    <div class="form-group">
+					    	<textarea class="form-control" name="comments" id="comments2" rows="6" placeholder="Comment"></textarea>
+					    </div>
+					    <div class="form-group">
+					    	<button type="submit" id="submit2" class="btn_1 add_bottom_15">Submit</button>
+					    </div>
+                        <input type="hidden" name=bgid value="<?php echo $bgid ?>"> 
+                    </form>
+
+				</div>
+				<!-- /col -->
+
+				<aside class="col-lg-3">
+					<div class="widget">
+						<div class="widget-title first">
+							<h4>Latest Post</h4>
+						</div>
+						<ul class="comments-list">
+							<?php
+
+							$query = mysqli_query($connect, "SELECT * FROM blog_post as b join user as u on b.bg_us_id=u.us_id order by bg_time DESC limit 3");
+							while ($row = mysqli_fetch_array($query)) {
+								?>
+							<li>
+								<div class="alignleft">
+									<a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>"><img src="img2/<?php echo htmlentities($row['bg_img']); ?>" alt=""></a>
+								</div>
+								<small><?php echo htmlentities($row['bg_time']); ?></small>
+								<h3><a href="blog-post.php?bgid=<?php echo htmlentities($row['bg_id']); ?>" title=""><?php echo htmlentities($row['bg_title']); ?></a></h3>
+							</li>
+							<?php } ?>
+							
+						</ul>
+					</div>
+					<!-- /widget -->
+					<div class="widget">
+						<div class="widget-title">
+							<h4>Categories</h4>
+						</div>
+						<ul class="cats">
+							<li><a href="#">Food <span>(12)</span></a></li>
+							<li><a href="#">Places to visit <span>(21)</span></a></li>
+							<li><a href="#">New Places <span>(44)</span></a></li>
+							<li><a href="#">Suggestions and guides <span>(31)</span></a></li>
+						</ul>
+					</div>
+					<!-- /widget -->
+					<div class="widget">
+						<div class="widget-title">
+							<h4>Popular Tags</h4>
+						</div>
+						<div class="tags">
+							<a href="#">Food</a>
+							<a href="#">Bars</a>
+							<a href="#">Cooktails</a>
+							<a href="#">Shops</a>
+							<a href="#">Best Offers</a>
+							<a href="#">Transports</a>
+							<a href="#">Restaurants</a>
+						</div>
+					</div>
+					<!-- /widget -->
+				</aside>
+				<!-- /aside -->
+			</div>
+			<!-- /row -->	
+		</div>
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
 </body>
