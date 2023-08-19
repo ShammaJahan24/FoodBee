@@ -134,4 +134,54 @@
         </div>
     </header>
     <!-- /header -->
+
+    <main class="bg_gray">
+		
+		<div class="container margin_60_20">
+		    <div class="row justify-content-center">
+		        <div class="col-lg-8">
+		            <div class="box_general write_review">
+
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM blog_post where bg_id = $bg_id");
+                                        while ($row = mysqli_fetch_array($query))
+                                        {
+                                            $bg_title = $row['bg_title'];
+                                            $bg_post = $row['bg_post'];
+                            
+                                        }
+                    ?>
+					
+		                <h1 class="add_bottom_15">Edit Blog </h1>
+						
+						<<form class="ui form" method="post" enctype="multipart/form-data" action="edit_blog_handler.php">
+                            <div class="form-group">
+		                        <label>Title of your Recipes</label>
+		                        <input class="form-control" type="text" value="<?php echo $bg_title ?>" name=bg_title>
+		                    </div>
+                            <div class="form-group">
+                            <label>Post</label>
+                            <textarea class="form-control" name="bg_post" rows="6" cols="70"><?php echo $bg_post ?></textarea>
+                            </div>
+
+		                    <div class="form-group">
+		                        <label>Add your photo </label>
+		                        <div class="fileupload"><input type="file" name="fileupload" accept="image/*"></div>
+		                    </div>
+		                    <div class="form-group">
+		                    </div>
+                            <input type=hidden name=bg_id value="<?php echo $bg_id?>">
+						    <input class="btn_1" type=submit value="Submit">
+                            
+						</form>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- /row -->
+		</div>
+
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
 </body>
