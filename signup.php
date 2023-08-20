@@ -16,6 +16,7 @@
 
 $us_name = $_GET["us_name"];
 $us_type = 1;
+$last_name = $_GET['last_name'];
 $email = $_GET['us_email'];
 $password = $_GET['us_pass1'];
 $confirm_password = $_GET['us_pass2'];
@@ -33,7 +34,7 @@ $result = mysqli_query($connect, $query);
 $user = mysqli_fetch_assoc($result);
 
 if ($user) { //if user exists
-    if ($user['us_name'] === $us_name) {
+    if ($user['us_name'] === $username) {
         echo "Username already exists.";
         exit();
     }
