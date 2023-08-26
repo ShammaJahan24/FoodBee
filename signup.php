@@ -57,4 +57,3 @@ header("Location: index.php?nid=$r_id&cid=$user_id");
 ?>
 </body>
 </html>
-fhioyoiyo
