@@ -162,7 +162,7 @@
 									<span class="magnific-gallery">
 										<a href="img2/<?php echo htmlentities($row['r_pic']); ?>" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
 										<a href="img2/<?php echo htmlentities($row['r_pic']); ?>" title="Photo title" data-effect="mfp-zoom-in"></a>
-										<a href="img2/<?php echo htmlentities($row['r_pic']); ?>" title="Photo title" data-effect="mfp-zoom-in"></a>
+										<a href="img2/<?php echo htmlentities($row['']); ?>" title="Photo title" data-effect="mfp-zoom-in"></a>
 									</span>
 									<a href="#0" class="btn_hero wishlist"><i class="icon_heart"></i>Wishlist</a>
 								</div>
